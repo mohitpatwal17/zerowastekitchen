@@ -1,0 +1,47 @@
+﻿
+> frontend@0.1.0 lint
+> eslint
+
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\app\inventory\page.tsx
+  6:29  warning  'Filter' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\app\page.tsx
+  290:77  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  292:39  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  330:79  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  332:39  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  362:57  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  364:29  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\app\preferences\page.tsx
+  55:108  error    Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  57:48   warning  'idx' is defined but never used                                         @typescript-eslint/no-unused-vars
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\app\shopping\page.tsx
+  74:48  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  76:43  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\components\InventoryTable.tsx
+  55:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\components\PortionPlanner.tsx
+   24:42   error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+   34:8    warning  React Hook useEffect has a missing dependency: 'calculate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   48:23   error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+   57:50   error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+  152:105  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                               react/no-unescaped-entities
+  152:125  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                               react/no-unescaped-entities
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\components\RescueCard.tsx
+  24:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\lib\LocalizationContext.tsx
+  37:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/set-state-in-effect')
+
+C:\Users\MOHIT PATWAL\Desktop\ZeroWasteKitchen\frontend\src\lib\api.ts
+  25:22  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 21 problems (14 errors, 7 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
