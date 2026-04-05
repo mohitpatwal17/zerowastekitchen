@@ -38,8 +38,8 @@ export function InventoryCard({
         {/* Header: Emoji & Name */}
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl shadow-inner">
-              {getFoodEmoji(item.category)}
+            <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl shadow-inner font-black text-slate-400">
+              {getFoodEmoji(item.category, item.name)}
             </div>
             <div>
               <h3 className="font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h3>

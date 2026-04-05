@@ -221,6 +221,13 @@ export default function DashboardPage() {
                             </Button>
                         </Card>
                     ))
+                ) : data.items.length > 0 ? (
+                    <Card className="col-span-full p-8 flex flex-col items-center justify-center text-center border-dashed border-2">
+                        <UtensilsCrossed className="w-12 h-12 text-slate-300 mb-4 animate-bounce" />
+                        <h3 className="text-lg font-black dark:text-white uppercase tracking-tight">Ready to Cook</h3>
+                        <p className="text-slate-500 font-bold max-w-sm mb-4">You have items in your kitchen! Click refresh to generate zero-waste meal suggestions.</p>
+                        <Button onClick={() => generateAiMeals(data.items)}>Generate Meals</Button>
+                    </Card>
                 ) : (
                     <Card className="col-span-full p-8 flex flex-col items-center justify-center text-center border-dashed border-2">
                         <UtensilsCrossed className="w-12 h-12 text-slate-300 mb-4" />
@@ -231,7 +238,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Expiry Timeline Section */}
-        <div className="space-y-6">
+        <div className="space-y-6 min-w-0">
             <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
                     <Calendar className="w-6 h-6 text-white" />
@@ -247,7 +254,7 @@ export default function DashboardPage() {
                                 "absolute left-0 top-1 w-6 h-6 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 transition-colors",
                                 item.risk_score > 75 ? "bg-red-500" : item.risk_score > 40 ? "bg-amber-500" : "bg-emerald-500"
                             )}>
-                                <span className="text-[10px] text-white font-black">{getFoodEmoji(item.category)}</span>
+                                <span className="text-[10px] text-white font-black">{getFoodEmoji(item.category, item.name)}</span>
                             </div>
                             <div className="min-w-0 flex-1">
                                 <h5 className="font-bold text-sm text-slate-900 dark:text-white leading-snug break-words">{item.name}</h5>
@@ -255,9 +262,9 @@ export default function DashboardPage() {
                             </div>
                         </div>
                     ))}
-                    <Button variant="ghost" className="w-full mt-4 text-emerald-600 text-xs font-bold uppercase tracking-wider">
+                    <Button variant="ghost" className="w-full mt-4 text-emerald-600 text-xs font-bold uppercase tracking-wider truncate">
                         View Full Inventory
-                        <ArrowRight className="ml-2 w-3 h-3" />
+                        <ArrowRight className="ml-2 w-3 h-3 shrink-0" />
                     </Button>
                 </div>
             </Card>
