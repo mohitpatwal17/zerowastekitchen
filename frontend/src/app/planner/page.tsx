@@ -101,7 +101,7 @@ function PortionPlanner({ items }: { items: any[] }) {
             setResult(extractJSON<{tip: string, ingredients: any[]}>(resp));
         } catch (e: any) {
             console.error(e);
-            if (e.message.includes("API_KEY_REQUIRED")) setAiError("API_KEY_REQUIRED");
+            setAiError(e.message || "Failed to generate plan");
         } finally {
             setLoading(false);
         }
@@ -143,9 +143,9 @@ function PortionPlanner({ items }: { items: any[] }) {
                         <Button size="lg" className="w-full py-6 text-lg" onClick={handlePlan} isLoading={loading}>
                             Calculate Portions
                         </Button>
-                        {aiError === "API_KEY_REQUIRED" && (
+                        {aiError && (
                             <p className="text-xs text-red-500 font-bold text-center mt-2">
-                                API Key missing. Please set NEXT_PUBLIC_GEMINI_API_KEY in .env.local
+                                {aiError === "API_KEY_REQUIRED" ? "API Key missing. Please set NEXT_PUBLIC_GEMINI_API_KEY in .env.local" : `Error: ${aiError}`}
                             </p>
                         )}
                     </div>
@@ -193,7 +193,7 @@ function RemixLab({ items }: { items: any[] }) {
             setResult(extractJSON(resp));
         } catch (e: any) {
             console.error(e);
-            if (e.message.includes("API_KEY_REQUIRED")) setAiError("API_KEY_REQUIRED");
+            setAiError(e.message || "Failed to generate remix");
         } finally {
             setLoading(false);
         }
@@ -233,9 +233,9 @@ function RemixLab({ items }: { items: any[] }) {
                     <Sparkles className="w-5 h-5 mr-2" />
                     Launch Remix Engine
                 </Button>
-                {aiError === "API_KEY_REQUIRED" && (
+                {aiError && (
                     <p className="text-xs text-red-500 font-bold text-center mt-2">
-                        API Key missing. Please set NEXT_PUBLIC_GEMINI_API_KEY in .env.local
+                        {aiError === "API_KEY_REQUIRED" ? "API Key missing. Please set NEXT_PUBLIC_GEMINI_API_KEY in .env.local" : `Error: ${aiError}`}
                     </p>
                 )}
             </div>
