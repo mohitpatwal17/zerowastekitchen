@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 // I'll use a simpler ClientLayout that just wraps the content and uses the hooks.
 
 import { Menu, Sparkles } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,11 +31,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
             <Menu size={24} className="text-slate-600 dark:text-slate-400" />
           </button>
           
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-emerald-500" />
-            <span className="font-black tracking-tighter uppercase italic dark:text-white">CrumbIQ</span>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 shadow-inner border border-slate-200 dark:border-slate-700" />
           </div>
-          <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800" />
         </header>
 
         <main className="flex-1 lg:ml-64 pb-24 lg:pb-10 transition-all duration-300">

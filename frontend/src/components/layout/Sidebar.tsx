@@ -21,6 +21,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
@@ -108,12 +109,15 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean, onClose?: () =>
                   </div>
               </div>
           </Link>
-          <Link href="/preferences" onClick={onClose}>
-              <div className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                  <Settings className="w-5 h-5 text-slate-400" />
-                  <span className="text-sm font-bold text-slate-500">Settings</span>
-              </div>
-          </Link>
+          <div className="flex items-center gap-2">
+              <Link href="/preferences" onClick={onClose} className="flex-1">
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                      <Settings className="w-5 h-5 text-slate-400" />
+                      <span className="text-sm font-bold text-slate-500">Settings</span>
+                  </div>
+              </Link>
+              <ThemeToggle />
+          </div>
         </div>
       </aside>
     </>
