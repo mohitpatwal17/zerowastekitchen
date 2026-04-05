@@ -1,9 +1,11 @@
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 /**
  * Proxies AI requests through the backend to avoid CORS and hide API keys.
  */
 export async function askAI(prompt: string, systemInstruction?: string) {
   try {
-    const response = await fetch("http://localhost:8000/ai/proxy", {
+    const response = await fetch(`${BASE_URL}/ai/proxy`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
