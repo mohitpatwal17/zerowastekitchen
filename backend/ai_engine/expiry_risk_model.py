@@ -42,11 +42,18 @@ class ExpiryRiskModel:
         # In a real app, save it. For MVP, we just keep it in memory or could save.
         # joblib.dump(self.model, MODEL_PATH)
 
-    def estimate_shelf_life(self, category: str) -> int:
+    def estimate_shelf_life(self, item_name: str, category: str) -> int:
         """
-        Estimates shelf life in days based on category rules if expiry is missing.
-        (Roadmap Feature 1)
+        Estimates shelf life in days based on specific item names or category rules if expiry is missing.
         """
+        name_lower = item_name.lower()
+        if "milk" in name_lower: return 6
+        if "cheese" in name_lower: return 21
+        if "yogurt" in name_lower: return 10
+        if "spinach" in name_lower or "lettuce" in name_lower: return 5
+        if "potato" in name_lower or "onion" in name_lower: return 30
+        if "bread" in name_lower: return 5
+
         data = {
             "Produce": 7,
             "Dairy": 10,

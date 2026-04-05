@@ -151,7 +151,8 @@ function InventoryForm({ item, onSuccess, onCancel }: any) {
         category: item?.category || "Produce",
         quantity: item?.quantity || "1 kg",
         price: item?.price || 0,
-        storage_type: item?.storage_type || "fridge"
+        storage_type: item?.storage_type || "fridge",
+        expiry_date: item?.expiry_date ? new Date(item.expiry_date).toISOString().split('T')[0] : ""
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -208,14 +209,26 @@ function InventoryForm({ item, onSuccess, onCancel }: any) {
                     />
                 </div>
             </div>
-            <div className="space-y-2">
-                <label className="text-xs font-black uppercase text-slate-500 ml-1">Price (₹)</label>
-                <input 
-                    type="number"
-                    className="w-full bg-slate-50 dark:bg-slate-800 border-0 rounded-2xl p-4 font-bold text-slate-900 dark:text-white ring-1 ring-slate-200 dark:ring-slate-700"
-                    value={formData.price}
-                    onChange={(e) => setFormData({...formData, price: Number(e.target.value)})}
-                />
+            <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                    <label className="text-xs font-black uppercase text-slate-500 ml-1">Expiry Date</label>
+                    <input 
+                        type="date"
+                        className="w-full bg-slate-50 dark:bg-slate-800 border-0 rounded-2xl p-4 font-bold text-slate-900 dark:text-white ring-1 ring-slate-200 dark:ring-slate-700"
+                        value={formData.expiry_date}
+                        onChange={(e) => setFormData({...formData, expiry_date: e.target.value})}
+                    />
+                    <p className="text-[10px] text-slate-400 font-bold ml-1">Leave blank for AI estimate</p>
+                </div>
+                <div className="space-y-2">
+                    <label className="text-xs font-black uppercase text-slate-500 ml-1">Price (₹)</label>
+                    <input 
+                        type="number"
+                        className="w-full bg-slate-50 dark:bg-slate-800 border-0 rounded-2xl p-4 font-bold text-slate-900 dark:text-white ring-1 ring-slate-200 dark:ring-slate-700"
+                        value={formData.price}
+                        onChange={(e) => setFormData({...formData, price: Number(e.target.value)})}
+                    />
+                </div>
             </div>
             <div className="flex gap-3 pt-4">
                 <Button type="button" variant="ghost" className="flex-1" onClick={onCancel}>Cancel</Button>

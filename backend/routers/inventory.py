@@ -19,7 +19,7 @@ def create_item(item: schemas.ItemCreate, db: Session = Depends(database.get_db)
     # 1. Smart Expiry Estimation (Feature 1)
     expiry_date = item.expiry_date
     if not expiry_date:
-        days = ai_engine.get_shelf_life_estimation(item.category)
+        days = ai_engine.get_shelf_life_estimation(item.name, item.category)
         from datetime import timedelta
         expiry_date = datetime.now() + timedelta(days=days)
     

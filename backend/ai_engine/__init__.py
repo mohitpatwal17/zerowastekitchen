@@ -19,8 +19,8 @@ def calculate_risk_score(item_name: str, expiry_date: datetime, storage_type: st
     
     return risk_model.predict_risk(days_remaining, storage_type, category)
 
-def get_shelf_life_estimation(category: str) -> int:
-    return risk_model.estimate_shelf_life(category)
+def get_shelf_life_estimation(item_name: str, category: str) -> int:
+    return risk_model.estimate_shelf_life(item_name, category)
 
 def get_storage_advice(item_name: str, category: str) -> str:
     return risk_model.get_storage_advice(item_name, category)
