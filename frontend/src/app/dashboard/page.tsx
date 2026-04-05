@@ -113,11 +113,18 @@ export default function DashboardPage() {
   const criticalItems = data.items.filter((i: any) => i.risk_score > 70);
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto space-y-6 animate-in slide-in-from-bottom-8 fade-in duration-1000 pb-20">
+    <div className="w-full max-w-[1400px] mx-auto space-y-6 animate-in slide-in-from-bottom-8 fade-in duration-1000 pb-20 relative">
       
+      {/* Ambient Premium Mesh Background */}
+      <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+         <div className="absolute top-[-10%] -left-[-10%] w-[500px] h-[500px] bg-emerald-500/20 dark:bg-emerald-500/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen opacity-70 animate-pulse" style={{ animationDuration: "12s" }} />
+         <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-rose-500/20 dark:bg-rose-500/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen opacity-70 animate-pulse" style={{ animationDuration: "15s" }} />
+         <div className="absolute bottom-[-10%] left-[20%] w-[800px] h-[800px] bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen opacity-70 animate-pulse" style={{ animationDuration: "18s" }} />
+      </div>
+
       {/* Header section with sleek minimalist typography */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4 px-2">
-        <div className="flex flex-col gap-1">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 px-2 pt-4">
+        <div className="flex flex-col gap-1 relative z-10">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}>
             <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-slate-500 tracking-tighter">
               Overview

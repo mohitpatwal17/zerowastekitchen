@@ -37,8 +37,8 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
           <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800" />
         </header>
 
-        <main className="flex-1 w-full lg:ml-64 pb-24 lg:pb-10 transition-all duration-300">
-          <div className="w-full h-full p-4 sm:p-6 lg:p-8">
+        <main className="flex-1 lg:ml-64 pb-24 lg:pb-10 transition-all duration-300">
+          <div className="h-full p-4 sm:p-6 lg:p-8">
             {children}
           </div>
         </main>
