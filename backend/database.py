@@ -4,7 +4,11 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 # Fallback to sqlite if postgres is not available/configured
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./crumbiq.db")
+# Use /tmp for sqlite on Vercel if no DATABASE_URL is provided
+if not os.getenv("DATABASE_URL") and os.getenv("VERCEL"):
+    SQLALCHEMY_DATABASE_URL = "sqlite:////tmp/crumbiq.db"
+else:
+    SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./crumbiq.db")
 # For production/postgres: "postgresql://user:password@localhost/dbname"
 
 engine = create_engine(
