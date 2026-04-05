@@ -29,18 +29,18 @@ app.include_router(ai.router, prefix="/ai", tags=["ai"])
 
 @app.on_event("startup")
 def startup_event():
-        db = next(database.get_db())
-        user = db.query(models.User).first()
-        if not user:
-                    db.add(models.User(id=1, username="default_user", email="user@crumbiq.com", role="household"))
-                    db.commit()
+    db = next(database.get_db())
+    user = db.query(models.User).first()
+    if not user:
+        db.add(models.User(id=1, username="default_user", email="user@crumbiq.com", role="household"))
+        db.commit()
 
-    @app.middleware("http")
+@app.middleware("http")
 async def add_pna_header(request: Request, call_next):
-        response = await call_next(request)
-        response.headers["Private-Network-Access-Name"] = "CrumbIQ"
-        response.headers["Private-Network-Access-ID"] = "crumb-iq-brain"
-        return response
+    response = await call_next(request)
+    response.headers["Private-Network-Access-Name"] = "CrumbIQ"
+    response.headers["Private-Network-Access-ID"] = "crumb-iq-brain"
+    return response
 
 @app.get("/")
 async def root():
