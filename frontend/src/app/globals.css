@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   /* Brand Colors - High-End Emerald & Slate */
   --color-spring-50: #f0fdf4;
