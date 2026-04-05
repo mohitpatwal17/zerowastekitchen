@@ -19,13 +19,13 @@ app.add_middleware(
 )
 
 # App Routers
-app.include_router(inventory.router, prefix="/items", tags=["inventory"])
-app.include_router(planner.router, prefix="/planner", tags=["planner"])
-app.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
-app.include_router(waste.router, prefix="/waste", tags=["waste"])
-app.include_router(shopping.router, prefix="/shopping", tags=["shopping"])
-app.include_router(insights.router, prefix="/insights", tags=["insights"])
-app.include_router(ai.router, prefix="/ai", tags=["ai"])
+app.include_router(inventory.router, tags=["inventory"])
+app.include_router(planner.router, tags=["planner"])
+app.include_router(analytics.router, tags=["analytics"])
+app.include_router(waste.router, tags=["waste"])
+app.include_router(shopping.router, tags=["shopping"])
+app.include_router(insights.router, tags=["insights"])
+app.include_router(ai.router, tags=["ai"])
 
 @app.on_event("startup")
 def startup_event():

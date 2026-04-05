@@ -84,6 +84,17 @@ export default function DashboardPage() {
 
 
   if (loading) return <DashboardSkeleton />;
+  
+  if (!data || !data.items || !data.impact) {
+      return (
+          <div className="w-full flex flex-col items-center justify-center p-12 text-center">
+              <AlertTriangle className="w-12 h-12 text-red-500 mb-4" />
+              <h2 className="text-xl font-black text-slate-800 dark:text-white uppercase mb-2">Connection Issues</h2>
+              <p className="text-slate-500 font-medium max-w-sm">We couldn't connect to the AI brain or retrieve your kitchen data. Please try refreshing.</p>
+              <Button className="mt-6" onClick={() => window.location.reload()}>Reload Dashboard</Button>
+          </div>
+      );
+  }
 
   const criticalItems = data.items.filter((i: any) => i.risk_score > 70);
 
