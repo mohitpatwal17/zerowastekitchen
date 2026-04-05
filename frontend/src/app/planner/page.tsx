@@ -151,20 +151,20 @@ function PortionPlanner({ items }: { items: any[] }) {
                     </div>
 
                     {result && (
-                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">
+                        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6 animate-in fade-in zoom-in duration-300">
                             <div className="p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/20 flex items-start gap-3">
                                 <Zap className="w-5 h-5 text-emerald-600 mt-1 shrink-0" />
-                                <p className="text-sm font-bold text-emerald-800 dark:text-emerald-300 italic">"{result.tip}"</p>
+                                <p className="text-sm font-bold text-emerald-800 dark:text-emerald-300 italic">"{result.tip || 'Zero waste achieved!'}"</p>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                {result.ingredients.map((ing: any, i: number) => (
+                                {Array.isArray(result.ingredients) && result.ingredients.map((ing: any, i: number) => (
                                     <div key={i} className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 flex justify-between items-center group hover:border-emerald-500 transition-all">
-                                        <span className="font-bold dark:text-white">{ing.name}</span>
-                                        <Badge variant="success">{ing.amount}</Badge>
+                                        <span className="font-bold dark:text-white">{ing.name || 'Ingredient'}</span>
+                                        <Badge variant="success">{ing.amount || 'to taste'}</Badge>
                                     </div>
                                 ))}
                             </div>
-                        </motion.div>
+                        </div>
                     )}
                 </div>
             </Card>
@@ -250,9 +250,9 @@ function RemixLab({ items }: { items: any[] }) {
                             <span className="flex items-center gap-1 text-xs font-bold"><Flame className="w-3 h-3" /> {result.difficulty}</span>
                         </div>
                     </div>
-                    <div className="p-8 space-y-6">
+                    <div className="p-8 space-y-6 animate-in fade-in zoom-in duration-300">
                         <div className="space-y-4">
-                            {result.steps.map((step: string, i: number) => (
+                            {Array.isArray(result.steps) && result.steps.map((step: string, i: number) => (
                                 <div key={i} className="flex gap-4 group">
                                     <div className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0 text-indigo-600 text-xs font-black group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                                         {i + 1}
